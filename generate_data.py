@@ -43,5 +43,7 @@ if __name__ == "__main__":
     cov = [[args.var, 0, 0], [0, args.var, 0], [0, 0, 0]]
     num_points = args.train_points_per_class + args.test_points_per_class
     data = np.random.default_rng().multivariate_normal(mean, cov, num_points)
+    class_label = np.zeros((num_points, 1))
+    data = np.hstack((data, class_label))
     import pdb; pdb.set_trace()
 
