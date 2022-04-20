@@ -66,8 +66,8 @@ if __name__ == "__main__":
     # import pdb; pdb.set_trace()
 
     # Save the data
-    np.save(f'{args.OUT}/train{args.train_points_per_class}_mean_shift{args.mean_shift}_var{args.var}.npy')
+    np.save(f'{args.OUT}/train{args.train_points_per_class}_mean_shift{args.mean_shift}_var{args.var}.npy', data_train)
     if args.save_test == 'yes':
-        np.save(f'{args.OUT}/test{args.test_points_per_class}_mean_shift{args.mean_shift}_var{args.var}.npy')
+        np.save(f'{args.OUT}/test{args.test_points_per_class}_mean_shift{args.mean_shift}_var{args.var}.npy', data_test)
 
 
