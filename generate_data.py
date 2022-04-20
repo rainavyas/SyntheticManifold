@@ -63,7 +63,7 @@ if __name__ == "__main__":
     # Merge A and B classes
     data_train = np.vstack((data_trainA, data_trainB))
     data_test = np.vstack((data_testA, data_testB))
-    import pdb; pdb.set_trace()
+    # import pdb; pdb.set_trace()
 
     # Save the data
     np.save(f'{args.OUT}/train{args.train_points_per_class}_mean_shift{args.mean_shift}_var{args.var}.npy')
