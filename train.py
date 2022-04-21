@@ -121,12 +121,12 @@ if __name__ == "__main__":
 
     dev_data = torch.from_numpy(data[:num_dev])
     x_dev = dev_data[:,:-1]
-    y_dev = dev_data[:,-1].squeeze()
+    y_dev = torch.squeeze(dev_data[:,-1], dim=1)
     y_dev = y_dev.type(torch.IntTensor)
 
     train_data = torch.from_numpy(data[num_dev:])
     x_train = train_data[:,:-1]
-    y_train = train_data[:,-1].squeeze(dim=1)
+    y_train = torch.squeeze(train_data[:,-1], dim=1)
     y_train = y_train.type(torch.IntTensor)
 
     import pdb; pdb.set_trace()
