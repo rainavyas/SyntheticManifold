@@ -1,5 +1,4 @@
 import torch.nn as nn
-import torch
 
 class FFN(nn.Module):
     '''
@@ -20,4 +19,4 @@ class FFN(nn.Module):
         '''
         x: Tensor [batch x 3]
         '''
-        return torch.squeeze(self.model(x), dim=1)
+        return self.model(x).squeeze(dim=1)
