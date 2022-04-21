@@ -44,8 +44,8 @@ def train(train_loader, model, criterion, optimizer, epoch, device, print_freq=2
 
         # measure accuracy and record loss
         acc = accuracy_binary(pred.data, target)
-        accs.update(acc.item(), id.size(0))
-        losses.update(loss.item(), id.size(0))
+        accs.update(acc.item(), x.size(0))
+        losses.update(loss.item(), x.size(0))
 
         if i % print_freq == 0:
             print(f'Epoch: [{epoch}][{i}/{len(train_loader)}]\t'
@@ -76,8 +76,8 @@ def eval(val_loader, model, criterion, device):
 
             # measure accuracy and record loss
             acc = accuracy_binary(pred.data, target)
-            accs.update(acc.item(), id.size(0))
-            losses.update(loss.item(), id.size(0))
+            accs.update(acc.item(), x.size(0))
+            losses.update(loss.item(), x.size(0))
 
     print(f'Test\t Loss ({losses.avg:.4f})\t'
             'Accuracy ({accs.avg:.3f})\n')
