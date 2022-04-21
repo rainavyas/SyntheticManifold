@@ -38,7 +38,7 @@ if __name__ == "__main__":
     # Load the data as tensors
     with open(args.TEST_DATA, 'rb') as f:
         data = np.load(f)
-    dev_data = torch.from_numpy(data)
+    data = torch.from_numpy(data)
     x = data[:,:-1].type(torch.FloatTensor)
     y = data[:,-1].type(torch.FloatTensor)
 
