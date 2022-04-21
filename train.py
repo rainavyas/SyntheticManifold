@@ -48,9 +48,7 @@ def train(train_loader, model, criterion, optimizer, epoch, device, print_freq=2
         losses.update(loss.item(), x.size(0))
 
         if i % print_freq == 0:
-            print(f'Epoch: [{epoch}][{i}/{len(train_loader)}]\t'
-                    'Loss {losses.val:.4f} ({losses.avg:.4f})\t'
-                    'Accuracy {accs.val:.3f} ({accs.avg:.3f})')
+            print(f'Epoch: [{epoch}][{i}/{len(train_loader)}]\tLoss {losses.val:.4f} ({losses.avg:.4f})\tAccuracy {accs.val:.3f} ({accs.avg:.3f})')
     return losses.avg
 
 def eval(val_loader, model, criterion, device):
@@ -79,8 +77,7 @@ def eval(val_loader, model, criterion, device):
             accs.update(acc.item(), x.size(0))
             losses.update(loss.item(), x.size(0))
 
-    print(f'Test\t Loss ({losses.avg:.4f})\t'
-            'Accuracy ({accs.avg:.3f})\n')
+    print(f'Test\t Loss ({losses.avg:.4f})\tAccuracy ({accs.avg:.3f})\n')
     return losses.avg
 
 
