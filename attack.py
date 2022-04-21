@@ -70,4 +70,6 @@ if __name__ == "__main__":
         x_attacked = fgsm_attack(x, y, model, criterion, args.epsilon)
     
     # Save the attacked data
-    np.save(f'{args.OUT_DATA}/{args.ORIG_DATA[:-4]}_{args.ATTACK}_epsilon{args.epsilon}.npy', x_attacked.cpu().detach().numpy())
+    filebase = args.ORIG_DATA
+    filebase = filebase.split('/')[-1][:-4]
+    np.save(f'{args.OUT_DATA}/{filebase}_{args.ATTACK}_epsilon{args.epsilon}.npy', x_attacked.cpu().detach().numpy())
