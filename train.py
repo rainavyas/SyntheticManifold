@@ -129,8 +129,6 @@ if __name__ == "__main__":
     y_train = train_data[:,-1]
     y_train = y_train.type(torch.IntTensor)
 
-    import pdb; pdb.set_trace()
-
     # Use dataloader to handle batches
     train_ds = TensorDataset(x_train, y_train)
     dev_ds = TensorDataset(x_dev, y_dev)
