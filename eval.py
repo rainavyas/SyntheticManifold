@@ -9,7 +9,7 @@ from torch.utils.data import DataLoader
 import sys
 import os
 import argparse
-from tools import AverageMeter, accuracy_binary, get_default_device
+from tools import get_default_device
 from models import FFN
 import numpy as np
 from train import eval
@@ -38,6 +38,7 @@ if __name__ == "__main__":
     # Load the data as tensors
     with open(args.TEST_DATA, 'rb') as f:
         data = np.load(f)
+    dev_data = torch.from_numpy(data)
     x = data[:,:-1].type(torch.FloatTensor)
     y = data[:,-1].type(torch.FloatTensor)
 
