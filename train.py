@@ -98,7 +98,7 @@ if __name__ == "__main__":
     commandLineParser.add_argument('--sch', type=int, default=10, help="Specify scheduler rate")
     commandLineParser.add_argument('--seed', type=int, default=1, help="Specify seed for reproducibility")
     commandLineParser.add_argument('--num_hidden_layers', type=int, default=1, help="number of hidden layers")
-    commandLineParser.add_argument('--hidden_layer_size', type=int, default=1, help="size of hidden layers")
+    commandLineParser.add_argument('--hidden_layer_size', type=int, default=10, help="size of hidden layers")
     args = commandLineParser.parse_args()
 
     set_seeds(args.seed)
@@ -116,7 +116,7 @@ if __name__ == "__main__":
     with open(args.TRAIN_DATA, 'rb') as f:
         data = np.load(f)
     rng = np.random.default_rng()
-    rng.shuffle(rng)
+    rng.shuffle(data)
     num_dev = int(args.dev_frac*len(data))
 
     dev_data = data[:num_dev]
