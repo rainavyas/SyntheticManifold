@@ -20,6 +20,7 @@ def fgsm_attack(x, y, model, criterion, epsilon):
     '''
     model.eval()
     s = nn.Sigmoid()
+    x.requires_grad = True
     x.retain_grad()
     pred = s(model(x))
     loss = criterion(pred, y)
