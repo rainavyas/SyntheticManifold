@@ -4,7 +4,7 @@ class FFN(nn.Module):
     '''
     Feed Forward Network for binary classification
     '''
-    def _init__(self, num_hidden_layers=1, hidden_layer_size=10):
+    def __init__(self, num_hidden_layers=1, hidden_layer_size=10):
         super().__init__()
         inp_layer = nn.Sequential(nn.Linear(3, hidden_layer_size), nn.ReLU())
         out_layer = nn.Linear(hidden_layer_size, 1)
