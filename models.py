@@ -19,4 +19,4 @@ class FFN(nn.Module):
         '''
         x: Tensor [batch x 3]
         '''
-        return self.model(x).squeeze()
+        return self.model(x).squeeze(dim=1)

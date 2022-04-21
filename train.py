@@ -127,6 +127,8 @@ if __name__ == "__main__":
     x_train = dev_data[:,:-1]
     y_train = dev_data[:,-1].squeeze()
 
+    import pdb; pdb.set_trace()
+
     # Use dataloader to handle batches
     train_ds = TensorDataset(x_train, y_train)
     dev_ds = TensorDataset(x_dev, y_dev)
