@@ -8,6 +8,11 @@ def get_default_device():
         print("No CUDA found")
         return torch.device('cpu')
 
+def accuracy_binary(output, target):
+    output = torch.round(output)
+    num_eq = torch.eq(output, target).sum()
+    return num_eq/len(output)*100
+
 def accuracy_topk(output, target, k=1):
     """Computes the topk accuracy"""
     batch_size = target.size(0)

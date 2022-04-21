@@ -9,7 +9,7 @@ from torch.utils.data import DataLoader
 import sys
 import os
 import argparse
-from tools import AverageMeter, accuracy_topk, get_default_device
+from tools import AverageMeter, accuracy_binary, get_default_device
 from models import FFN
 import numpy as np
 
@@ -43,7 +43,7 @@ def train(train_loader, model, criterion, optimizer, epoch, device, print_freq=2
         optimizer.step()
 
         # measure accuracy and record loss
-        acc = accuracy_topk(pred.data, target)
+        acc = accuracy_binary(pred.data, target)
         accs.update(acc.item(), id.size(0))
         losses.update(loss.item(), id.size(0))
 
@@ -75,7 +75,7 @@ def eval(val_loader, model, criterion, device):
             loss = criterion(pred, target)
 
             # measure accuracy and record loss
-            acc = accuracy_topk(pred.data, target)
+            acc = accuracy_binary(pred.data, target)
             accs.update(acc.item(), id.size(0))
             losses.update(loss.item(), id.size(0))
 
