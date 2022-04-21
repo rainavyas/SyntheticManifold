@@ -121,11 +121,11 @@ if __name__ == "__main__":
 
     dev_data = torch.from_numpy(data[:num_dev])
     x_dev = dev_data[:,:-1].type(torch.FloatTensor)
-    y_dev = dev_data[:,-1].type(torch.IntTensor)
+    y_dev = dev_data[:,-1].type(torch.FloatTensor)
 
     train_data = torch.from_numpy(data[num_dev:])
     x_train = train_data[:,:-1].type(torch.FloatTensor)
-    y_train = train_data[:,-1].type(torch.IntTensor)
+    y_train = train_data[:,-1].type(torch.FloatTensor)
 
     # Use dataloader to handle batches
     train_ds = TensorDataset(x_train, y_train)
