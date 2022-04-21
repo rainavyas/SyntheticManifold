@@ -27,7 +27,7 @@ def fgsm_attack(x, y, model, criterion, epsilon):
     loss.backward()
 
     x_attacked = x + epsilon*torch.sign(x.grad)
-    import pdb; pdb.set_trace()
+    # import pdb; pdb.set_trace()
     return x_attacked
 
 
@@ -70,4 +70,4 @@ if __name__ == "__main__":
         x_attacked = fgsm_attack(x, y, model, criterion, args.epsilon)
     
     # Save the attacked data
-    np.save(f'{args.OUT}/{args.ORIG_DATA[:-4]}_{args.ATTACK}_epsilon{args.epsilon}.npy', x_attacked.cpu().detach().numpy())
+    np.save(f'{args.OUT_DATA}/{args.ORIG_DATA[:-4]}_{args.ATTACK}_epsilon{args.epsilon}.npy', x_attacked.cpu().detach().numpy())
