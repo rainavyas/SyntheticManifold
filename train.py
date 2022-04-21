@@ -121,6 +121,8 @@ if __name__ == "__main__":
 
     dev_data = torch.from_numpy(data[:num_dev])
     x_dev = dev_data[:,:-1]
+    y_dev = dev_data[:,-1]
+    import pdb; pdb.set_trace()
     y_dev = torch.squeeze(dev_data[:,-1], dim=1)
     y_dev = y_dev.type(torch.IntTensor)
 
