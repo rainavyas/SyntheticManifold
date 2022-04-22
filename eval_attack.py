@@ -22,7 +22,7 @@ def get_fooling_rate(x, y, x_attacked, model):
 
         correct_pred_orig = pred_orig[mask]
         correct_pred_attack = pred_attack[mask]
-        fool_rate = torch.eq(correct_pred_orig, correct_pred_attack).sum()/len(correct_pred_orig)
+        fool_rate = 1 - (torch.eq(correct_pred_orig, correct_pred_attack).sum()/len(correct_pred_orig))
         return fool_rate
 
 
@@ -58,7 +58,7 @@ if __name__ == "__main__":
 
     # diff = x_attacked-x
     # import pdb; pdb.set_trace()
-    
+
     # Load classifier
     model = FFN(num_hidden_layers=args.num_hidden_layers, hidden_layer_size=args.hidden_layer_size)
     model.load_state_dict(torch.load(args.MODEL, map_location=torch.device('cpu')))
