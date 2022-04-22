@@ -50,8 +50,9 @@ if __name__ == "__main__":
     y = data[:,-1].type(torch.FloatTensor)
 
     with open(args.ATTACK_DATA, 'rb') as f:
-        x_attacked = np.load(f)
-    x_attacked = x_attacked.type(torch.FloatTensor)
+        data = np.load(f)
+    data = torch.from_numpy(data)
+    x_attacked = data.type(torch.FloatTensor)
 
     # Load classifier
     model = FFN(num_hidden_layers=args.num_hidden_layers, hidden_layer_size=args.hidden_layer_size)
