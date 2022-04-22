@@ -56,6 +56,10 @@ if __name__ == "__main__":
     data = torch.from_numpy(data)
     x_attacked = data.type(torch.FloatTensor)
 
+    diff = x_attacked-x
+    import pdb; pdb.set_trace()
+
+
     # Load classifier
     model = FFN(num_hidden_layers=args.num_hidden_layers, hidden_layer_size=args.hidden_layer_size)
     model.load_state_dict(torch.load(args.MODEL, map_location=torch.device('cpu')))
